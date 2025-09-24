@@ -1,0 +1,132 @@
+[gd_scene load_steps=10 format=3 uid="uid://4h6vxhwb666m"]
+
+[ext_resource type="Texture2D" uid="uid://df412yf1btk3n" path="res://Images/Birds/Duck.png" id="1_2ycws"]
+[ext_resource type="Script" uid="uid://du4gj218bhsbs" path="res://Scenes/bird_preview.gd" id="2_62cnh"]
+[ext_resource type="Texture2D" uid="uid://d0hja44oouvy" path="res://Images/PipeHead.png" id="2_wq3x3"]
+[ext_resource type="Texture2D" uid="uid://ww2i40j72y5j" path="res://Images/PipeBody.png" id="3_u2ejf"]
+[ext_resource type="Texture2D" uid="uid://cia6o8jrp4hge" path="res://Images/GroundBase.png" id="4_wq3x3"]
+[ext_resource type="Texture2D" uid="uid://ckitosnnkwc4" path="res://Images/Background.png" id="5_u2ejf"]
+[ext_resource type="Script" uid="uid://drqeqb8xpmjqo" path="res://Scenes/ground_preview.gd" id="6_xlmn2"]
+[ext_resource type="Texture2D" uid="uid://xluqqymet3pi" path="res://Images/PointText.png" id="7_nu2os"]
+[ext_resource type="Script" uid="uid://crra8wf5tor20" path="res://Scenes/score_display.gd" id="8_2ycws"]
+
+[node name="PreviewScene" type="Node2D"]
+texture_filter = 1
+
+[node name="Bird" type="Sprite2D" parent="."]
+texture = ExtResource("1_2ycws")
+region_enabled = true
+region_rect = Rect2(0, 0, 32, 32)
+script = ExtResource("2_62cnh")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+scale = Vector2(1.00419, 1)
+zoom = Vector2(4.5, 4.5)
+
+[node name="PipeSet" type="Node2D" parent="."]
+
+[node name="PipeUpper" type="Node2D" parent="PipeSet"]
+position = Vector2(0, -35)
+
+[node name="Head" type="Sprite2D" parent="PipeSet/PipeUpper"]
+z_index = 1
+texture = ExtResource("2_wq3x3")
+
+[node name="Body" type="Sprite2D" parent="PipeSet/PipeUpper"]
+position = Vector2(0, -100)
+scale = Vector2(1, 200)
+texture = ExtResource("3_u2ejf")
+
+[node name="PipeLower" type="Node2D" parent="PipeSet"]
+position = Vector2(0, 35)
+
+[node name="Head" type="Sprite2D" parent="PipeSet/PipeLower"]
+z_index = 1
+scale = Vector2(1, -1)
+texture = ExtResource("2_wq3x3")
+
+[node name="Body" type="Sprite2D" parent="PipeSet/PipeLower"]
+position = Vector2(0, 100)
+scale = Vector2(1, 200)
+texture = ExtResource("3_u2ejf")
+
+[node name="PipeSet2" type="Node2D" parent="."]
+position = Vector2(60, -60)
+
+[node name="PipeUpper" type="Node2D" parent="PipeSet2"]
+position = Vector2(0, -35)
+
+[node name="Head" type="Sprite2D" parent="PipeSet2/PipeUpper"]
+z_index = 1
+texture = ExtResource("2_wq3x3")
+
+[node name="Body" type="Sprite2D" parent="PipeSet2/PipeUpper"]
+position = Vector2(0, -100)
+scale = Vector2(1, 200)
+texture = ExtResource("3_u2ejf")
+
+[node name="PipeLower" type="Node2D" parent="PipeSet2"]
+position = Vector2(0, 35)
+
+[node name="Head" type="Sprite2D" parent="PipeSet2/PipeLower"]
+z_index = 1
+scale = Vector2(1, -1)
+texture = ExtResource("2_wq3x3")
+
+[node name="Body" type="Sprite2D" parent="PipeSet2/PipeLower"]
+position = Vector2(0, 100)
+scale = Vector2(1, 200)
+texture = ExtResource("3_u2ejf")
+
+[node name="PipeSet3" type="Node2D" parent="."]
+position = Vector2(-60, -40)
+
+[node name="PipeUpper" type="Node2D" parent="PipeSet3"]
+position = Vector2(0, -35)
+
+[node name="Head" type="Sprite2D" parent="PipeSet3/PipeUpper"]
+z_index = 1
+texture = ExtResource("2_wq3x3")
+
+[node name="Body" type="Sprite2D" parent="PipeSet3/PipeUpper"]
+position = Vector2(0, -100)
+scale = Vector2(1, 200)
+texture = ExtResource("3_u2ejf")
+
+[node name="PipeLower" type="Node2D" parent="PipeSet3"]
+position = Vector2(0, 35)
+
+[node name="Head" type="Sprite2D" parent="PipeSet3/PipeLower"]
+z_index = 1
+scale = Vector2(1, -1)
+texture = ExtResource("2_wq3x3")
+
+[node name="Body" type="Sprite2D" parent="PipeSet3/PipeLower"]
+position = Vector2(0, 100)
+scale = Vector2(1, 200)
+texture = ExtResource("3_u2ejf")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+z_index = 2
+texture_repeat = 2
+position = Vector2(0, 91)
+texture = ExtResource("4_wq3x3")
+region_enabled = true
+region_rect = Rect2(0, 0, 1024, 32)
+script = ExtResource("6_xlmn2")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+z_index = -1
+texture = ExtResource("5_u2ejf")
+
+[node name="ScoreDisplay" type="Node2D" parent="."]
+z_index = 2
+position = Vector2(0, -65)
+scale = Vector2(0.5, 0.5)
+script = ExtResource("8_2ycws")
+
+[node name="Sprite2D" type="Sprite2D" parent="ScoreDisplay"]
+position = Vector2(1, 0)
+texture = ExtResource("7_nu2os")
+region_enabled = true
+region_rect = Rect2(0, 0, 18, 27)
